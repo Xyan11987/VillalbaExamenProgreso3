@@ -7,9 +7,10 @@
     Shell.FlyoutBehavior="Disabled"
     Title="VillalbaExamenProgreso3">
 
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
-
+    <TabBar>
+        <Tab Title="Buscador">
+            <ShellContent ContentTemplate="{DataTemplate views:SearchPage}" />
+        </Tab>
+    </TabBar>
 </Shell>
+
