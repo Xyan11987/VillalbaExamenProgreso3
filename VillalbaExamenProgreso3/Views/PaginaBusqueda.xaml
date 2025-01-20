@@ -13,4 +13,3 @@
         <Button x:Name="DVillalba_buttonClear" Text="Limpiar" Command="{Binding ClearCommand}" />
     </StackLayout>
 </ContentPage>
-

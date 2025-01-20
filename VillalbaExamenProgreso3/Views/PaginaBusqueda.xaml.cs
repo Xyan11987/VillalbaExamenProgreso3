@@ -1,10 +1,12 @@
-namespace VillalbaExamenProgreso3.Views;
+using Microsoft.Maui.Controls;
 
-public partial class PaginaBusqueda : ContentPage
+namespace VillalbaExamenProgreso3.Views
 {
-	public PaginaBusqueda()
-	{
-		InitializeComponent();
-	}
+    public partial class PaginaBusqueda : ContentPage
+    {
+        public PaginaBusqueda()
+        {
+            InitializeComponent();
+        }
+    }
 }
-
