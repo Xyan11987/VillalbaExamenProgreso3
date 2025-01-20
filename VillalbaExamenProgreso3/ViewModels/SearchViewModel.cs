@@ -1,12 +1,8 @@
 ﻿using MvvmHelpers;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using VillalbaExamenProgreso3.Services;
 using VillalbaExamenProgreso3.Models;
+using VillalbaExamenProgreso3.Services;
 
 namespace VillalbaExamenProgreso3.ViewModels
 {
@@ -20,14 +16,13 @@ namespace VillalbaExamenProgreso3.ViewModels
         public ICommand SearchCommand { get; }
         public ICommand ClearCommand { get; }
 
-        // Constructor modificado
         public SearchViewModel(string dbPath)
         {
             _restService = new RestCountriesService();
             _databaseService = new DatabaseService(dbPath);
 
             SearchCommand = new Command(async () => await SearchCountry());
-            ClearCommand = new Command(() => CountryName = string.Empty);
+            ClearCommand = new Command(ClearFields); 
         }
 
         private async Task SearchCountry()
@@ -38,12 +33,15 @@ namespace VillalbaExamenProgreso3.ViewModels
                 return;
             }
 
+            // Verificar que el país se esté enviando correctamente
+            Console.WriteLine($"Buscando el país: {CountryName}");
+
             var country = await _restService.GetCountryByName(CountryName);
 
             if (country != null)
             {
-                country.NombreE = "Dvillalba";
-                await _databaseService.SaveCountryAsync(country); // Guardar en la base de datos SQLite
+                country.NombreE = "SCordova"; 
+                await _databaseService.SaveCountryAsync(country); 
                 await Application.Current.MainPage.DisplayAlert("Éxito",
                     $"País: {country.NombreO}\nRegión: {country.Region}\nGoogle Maps: {country.GoogleMaps}",
                     "OK");
@@ -52,6 +50,14 @@ namespace VillalbaExamenProgreso3.ViewModels
             {
                 await Application.Current.MainPage.DisplayAlert("Error", "País no encontrado.", "OK");
             }
+        }
+
+
+
+        private void ClearFields()
+        {
+            CountryName = string.Empty; 
+            OnPropertyChanged(nameof(CountryName)); 
         }
     }
 }

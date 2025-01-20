@@ -1,21 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-    <Shell
-    x:Class="VillalbaExamenProgreso3.AppShell"
-    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:views="clr-namespace:VillalbaExamenProgreso3.Views"
-    Shell.FlyoutBehavior="Disabled"
-    Title="VillalbaExamenProgreso3">
+<Shell x:Class="VillalbaExamenProgreso3.AppShell"
+       xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:views="clr-namespace:VillalbaExamenProgreso3.Views"
+       Shell.FlyoutBehavior="Disabled"
+       Title="VillalbaExamenProgreso3">
 
-
-        <TabBar>
-            <Tab Title="Buscador">
-                <ShellContent ContentTemplate="{DataTemplate views:PaginaBusqueda}" />
-            </Tab>
-
-            <Tab Title="Consultados">
-                <ShellContent ContentTemplate="{DataTemplate views:PaginaConsultados}" />
-            </Tab>
-        </TabBar>
-
-    </Shell>
+    <TabBar>
+        <Tab Title="Buscador">
+            <ShellContent ContentTemplate="{DataTemplate views:PaginaBusqueda}" />
+        </Tab>
+        <Tab Title="Consultados">
+            <!-- Placeholder para pantalla de países consultados -->
+        </Tab>
+    </TabBar>
+</Shell>

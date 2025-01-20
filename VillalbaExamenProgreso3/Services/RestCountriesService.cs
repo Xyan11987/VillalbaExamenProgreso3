@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
@@ -22,13 +21,13 @@ namespace VillalbaExamenProgreso3.Services
 
             try
             {
-                // Realiza la solicitud a la API
-                var response = await _httpClient.GetFromJsonAsync<List<dynamic>>(url);
-                if (response?.Count > 0)
-                {
-                    var countryData = response[0];
+                // Obtener la respuesta como una lista de objetos 'CountryApiResponse'
+                var response = await _httpClient.GetFromJsonAsync<List<CountryApiResponse>>(url);
 
-                    // Crear y devolver un objeto Country con los datos obtenidos
+                if (response != null && response.Count > 0)
+                {
+                    var countryData = response[0]; // Tomamos el primer país de la lista
+
                     return new Country
                     {
                         NombreO = countryData.name.official,
@@ -36,14 +35,17 @@ namespace VillalbaExamenProgreso3.Services
                         GoogleMaps = countryData.maps.googleMaps
                     };
                 }
+                else
+                {
+                    // Si no encontramos el país, retornamos null
+                    return null;
+                }
             }
             catch (Exception ex)
             {
-                // Manejo de errores
                 Console.WriteLine($"Error en la solicitud: {ex.Message}");
+                return null;
             }
-
-            return null;
         }
     }
 }
