@@ -1,8 +1,8 @@
 namespace VillalbaExamenProgreso3.Views;
 
-public partial class NewPage1 : ContentPage
+public partial class PaginaBusqueda : ContentPage
 {
-	public NewPage1()
+	public PaginaBusqueda()
 	{
 		InitializeComponent();
 	}

@@ -9,7 +9,7 @@
 
     <TabBar>
         <Tab Title="Buscador">
-            <ShellContent ContentTemplate="{DataTemplate views:SearchPage}" />
+            <ShellContent ContentTemplate="{DataTemplate views:PaginaBusqueda}" />
         </Tab>
     </TabBar>
 </Shell>
