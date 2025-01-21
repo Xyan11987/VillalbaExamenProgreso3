@@ -21,12 +21,12 @@ namespace VillalbaExamenProgreso3.Services
 
             try
             {
-                // Obtener la respuesta como una lista de objetos 'CountryApiResponse'
+                
                 var response = await _httpClient.GetFromJsonAsync<List<CountryApiResponse>>(url);
 
                 if (response != null && response.Count > 0)
                 {
-                    var countryData = response[0]; // Tomamos el primer país de la lista
+                    var countryData = response[0]; 
 
                     return new Country
                     {

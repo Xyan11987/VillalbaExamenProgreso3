@@ -5,7 +5,7 @@
              xmlns:views="clr-namespace:VillalbaExamenProgreso3.ViewModels"
              Title="Diego Villalba">
     <StackLayout Padding="10">
-        <!-- Binding del ViewModel -->
+        
         <Entry x:Name="DVillalba_entryCountry" Placeholder="Ingrese el nombre del país" Text="{Binding CountryName}" />
         <Button x:Name="DVillalba_buttonSearch" Text="Buscar" Command="{Binding SearchCommand}" />
         <Button x:Name="DVillalba_buttonClear" Text="Limpiar" Command="{Binding ClearCommand}" />

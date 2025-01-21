@@ -33,7 +33,7 @@ namespace VillalbaExamenProgreso3.ViewModels
                 return;
             }
 
-            // Verificar que el país se esté enviando correctamente
+       
             Console.WriteLine($"Buscando el país: {CountryName}");
 
             var country = await _restService.GetCountryByName(CountryName);
