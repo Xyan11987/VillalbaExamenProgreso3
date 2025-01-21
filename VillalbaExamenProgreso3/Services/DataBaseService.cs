@@ -12,19 +12,17 @@ namespace VillalbaExamenProgreso3.Services
         public DatabaseService(string dbPath)
         {
             _database = new SQLiteAsyncConnection(dbPath);
-            _database.CreateTableAsync<Country>().Wait(); 
+            _database.CreateTableAsync<Country>().Wait();
         }
 
-        
-        public Task<int> SaveCountryAsync(Country country)
+        public async Task<List<Country>> GetCountriesAsync()
         {
-            return _database.InsertAsync(country);
+            return await _database.Table<Country>().ToListAsync();
         }
 
-      
-        public Task<List<Country>> GetCountriesAsync()
+        public async Task SaveCountryAsync(Country country)
         {
-            return _database.Table<Country>().ToListAsync();
+            await _database.InsertAsync(country);
         }
     }
 }
