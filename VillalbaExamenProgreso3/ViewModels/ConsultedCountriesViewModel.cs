@@ -16,14 +16,13 @@ namespace VillalbaExamenProgreso3.ViewModels
 
         public ConsultedCountriesViewModel()
         {
-            
             _databaseService = new DatabaseService(App.DatabasePath);
-
             RefreshCommand = new Command(async () => await LoadCountries());
             LoadCountries().ConfigureAwait(false);
         }
 
-        private async Task LoadCountries()
+        
+        public async Task LoadCountries()
         {
             if (IsBusy) return;
 
@@ -37,6 +36,7 @@ namespace VillalbaExamenProgreso3.ViewModels
                 {
                     Countries.Add(country);
                 }
+                Console.WriteLine("Países cargados: " + Countries.Count); 
             }
             finally
             {

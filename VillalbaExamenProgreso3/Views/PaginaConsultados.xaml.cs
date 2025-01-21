@@ -1,9 +1,22 @@
-namespace VillalbaExamenProgreso3.Views;
+using Microsoft.Maui.Controls;
+using System.Threading.Tasks;
+using VillalbaExamenProgreso3.ViewModels;
 
-public partial class PaginaConsultados : ContentPage
+namespace VillalbaExamenProgreso3.Views
 {
-	public PaginaConsultados()
-	{
-		InitializeComponent();
-	}
+    public partial class PaginaConsultados : ContentPage
+    {
+        public PaginaConsultados()
+        {
+            InitializeComponent();
+            BindingContext = new ConsultedCountriesViewModel();
+        }
+
+       
+        protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+            await ((ConsultedCountriesViewModel)BindingContext).LoadCountries();
+        }
+    }
 }
