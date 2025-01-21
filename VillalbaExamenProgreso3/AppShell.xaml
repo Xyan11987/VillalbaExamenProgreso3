@@ -11,7 +11,7 @@
             <ShellContent ContentTemplate="{DataTemplate views:PaginaBusqueda}" />
         </Tab>
         <Tab Title="Consultados">
-            <!-- Placeholder para pantalla de países consultados -->
+            <ShellContent ContentTemplate="{DataTemplate views:PaginaConsultados}" />
         </Tab>
     </TabBar>
 </Shell>
